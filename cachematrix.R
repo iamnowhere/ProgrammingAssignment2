@@ -1,14 +1,17 @@
-## There are two functions in this script: 
+# There are two functions in this script: 
 ## The first is called makeCacheMatrix and the second is called cacheSolve
-
-## The makeCacheMatrix function will calculate the mean for a vector of numbers.
-## The makeCacheMatrix funtion can be assigned to a variable (for example, z)
 
 # Funtion 1: makeCacheMatrix
 
 ## makeCacheMatrix function creates a cacheable matrix
 ## makeCacheMatrix can be assigned to a variable such as z
 ### z<-makeCacheMatrix() assigns makeCacheMatrix function to variable z
+
+## The z object can now be used to define a matrix: 
+### z$set(matrix(c(5,7,6,8),2,2))
+
+## This matrix portion of the z object can be retrieved:
+### z$get()
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -25,11 +28,6 @@ makeCacheMatrix <- function(x = matrix()) {
        getmatrix = getmatrix)
 }
 
-## The z object can now be used to define a matrix: 
-### z$set(matrix(c(5,7,6,8),2,2))
-
-## This matrix portion of the z object can be retrieved:
-### z$get()
 
 # Funtion 2: cacheSolve
 
