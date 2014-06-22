@@ -1,17 +1,55 @@
-## This is a commit test.
+## There are two functions in this script: 
+## The first is called makeCacheMatrix and the second is called cacheSolve
 
-## Put comments here that give an overall description of what your
-## functions do
+## The makeCacheMatrix function will calculate the mean for a vector of numbers.
+## The makeCacheMatrix funtion can be assigned to a variable (for example, z)
 
-## Write a short comment describing this function
+# Funtion 1: makeCacheMatrix
+
+## makeCacheMatrix function creates a cacheable matrix
+## makeCacheMatrix can be assigned to a variable such as z
+### z<-makeCacheMatrix() assigns makeCacheMatrix function to variable z
+
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m <<- NULL
+  } 
+  get <- function() x
+  setmatrix <- function(solve) m <<- solve
+  getmatrix <- function() m
+  list(set = set, get = get,
+       setmatrix = setmatrix,
+       getmatrix = getmatrix)
 }
 
+## The z object can now be used to define a matrix: 
+### z$set(matrix(c(5,7,6,8),2,2))
 
-## Write a short comment describing this function
+## This matrix portion of the z object can be retrieved:
+### z$get()
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+# Funtion 2: cacheSolve
+
+## The cacheSolve function will calculate the inverse of the matrix created 
+## with makeCacheMatrix function (Funtion 1, above). 
+
+### The inverse of the matrix created by makeCacheMatrix can be calculated using
+### z$get()
+
+## If the value has already been calculated then cacheSolve will
+## provide the caluculated version from the cache.
+
+cacheSolve <- function(x=matrix(), ...) {
+  m <- x$getmatrix()
+  if(!is.null(m)) {
+          message("getting cached data")
+          return(m)
+  }
+  matrix <- x$get()
+  m <- solve(matrix, ...)
+  x$setmatrix(m)
+  m
 }
