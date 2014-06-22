@@ -1,5 +1,8 @@
 # There are two functions in this script: 
-## The first is called makeCacheMatrix and the second is called cacheSolve
+## The first is called makeCacheMatrix and the second is called cacheSolve.
+## The makeCacheMatrix funtion creates a matrix object that can cache its inverse
+## and the cacheSolve function computes and caches the inverse of the matrix created
+## by makeCacheMatrix.
 
 # Funtion 1: makeCacheMatrix
 
